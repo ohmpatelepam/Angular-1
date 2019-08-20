@@ -9,19 +9,15 @@ import { ModelService,obj } from './model.service';
 
 export class AppComponent implements OnInit{
  
-  // data:Map<String,Array<obj>>;
+  
   constructor(private model:ModelService){ 
-    // this.data = undefined;
+    
   };
 
   ngOnInit() {
-    console.log("ngonit called");
+    
   }
-  // changenews(event){
-  //   console.log("on changed");
-  //   console.log(event);
-  //   this.data = this.model.getFilterData(event);
-  // }
+  
   
 
 

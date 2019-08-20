@@ -5,6 +5,7 @@
 	background-color: #082759;
 	color: white;
 	margin-top: -20px;
+	display: flex;
 }
 #subhead {
 	font-style: italic;
@@ -16,4 +17,13 @@
 	padding-left:40px; 
 	padding-top:20px; 
 	
+}
+#username{
+	margin-top: 45px;
+	margin-left: 760px;
+}
+#logout{
+	height: 20px;
+	margin-top: 42px;
+	margin-left: 30px;
 }

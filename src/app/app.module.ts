@@ -10,7 +10,10 @@ import { NewscellComponent } from './newscell/newscell.component';
 import { LoaderComponent } from './loader/loader.component';
 import {ModelService} from './model.service';
 import { AddarticleComponent } from './addarticle/addarticle.component';
-
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ContinuereadingComponent } from './continuereading/continuereading.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -24,11 +27,16 @@ import { AddarticleComponent } from './addarticle/addarticle.component';
     AsideComponent,
     NewscellComponent,
     LoaderComponent,
-    AddarticleComponent
+    AddarticleComponent,
+    ContinuereadingComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ModelService
     ],

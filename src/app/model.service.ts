@@ -27,8 +27,9 @@ export class ModelService {
     this.fetchData();
   }
 
-  fetchData =()=>{
-    fetch('https://newsapi.org/v2/top-headlines?' +
+  fetchData = async ()=>{
+    
+    await fetch('https://newsapi.org/v2/top-headlines?' +
     'country=us&' +
     'apiKey=d4e03df5989c4e4a998e4fb2fe632d48').then(response => response.json()).then(jsonres => this.set(jsonres)).catch(() => {
         alert("Please reload the page. Unable to fetch data");
@@ -64,27 +65,23 @@ export class ModelService {
   }
   getFilterData = (obj) => {
    
-    
-    if(obj.src == "all"){
-     
-      return  this.data;
-    }
-    let tempData = new Map();
-   
-    const iterator1 = this.data.entries();
-
-    for (let entry of iterator1) {
-      console.log(entry);
+      console.log("filter data");
+      console.log(obj.src);
+      if(obj.src === "all"){
+        
+        return  this.data;
+      }
+      let tempData = new Map();
       
-    }
-    // this.data.forEach((value: Array<obj>, key: String) => {
-    //   console.log(value);
-    //   if(key === obj.src){
-    //     tempData.set(key,value);
-    //   }
-    // });
-    console.log(tempData);
-    return tempData; 
+      const iterator1 = this.data.entries();
+
+      for (let entry of iterator1) {
+        if(entry[0] === obj.src){
+          tempData.set(obj.src,entry[1]);
+          break;
+        }
+      }
+      return tempData; 
   }
   addNews(obj){
     this.data.set(obj.title,[obj]);

@@ -6,7 +6,7 @@ footer{
 	text-align: center;
 	height: 57px;
 	bottom: 0px;
-	position: fixed;
+	position: relative;
 }
 #footer1 {
 	font-size: 15px;

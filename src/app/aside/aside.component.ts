@@ -19,8 +19,8 @@ export class AsideComponent implements OnInit {
     this.newsList = this.model.getData();
   }
   changedNews(news){
-  console.log("newschanged");
-   this.route.navigateByUrl("/component/{{news}}");
+    console.log(news);
+    this.route.navigateByUrl("/home/bodycomponent/" + news);
   }
 
 

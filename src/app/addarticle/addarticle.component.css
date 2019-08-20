@@ -1,8 +1,9 @@
 .lowerbuttons{
-    background-color: aqua;
+    background-color:black;
     margin-right: 500px;
-    width: auto;
-    height: auto;
+    width: 5%;
+    height: 30px;
+    color: white;
 }
 #short-description-input{
     height: 50px;;

@@ -2,28 +2,28 @@
     <h1>
         Create News
     </h1>
-    <form>
-    <div id="flex_div">
-        <div id="left_div">
-            Heading <br><br>
-            <input type="text"><br><br>
-            Short Description<br><br>
-            <input type="text" id="short-description-input"><br><br>
-            Content<br><br>
-            <input type="text" id="content" id="content-input"><br>
+    <form [formGroup]="form" (ngSubmit) = "saveClicked()">
+        <div id="flex_div">
+            <div id="left_div">
+                Heading <br><br>
+                <input type="text" name="heading" formControlName = "heading"><br><br>
+                Short Description<br><br>
+                <input type="text" id="short-description-input" formControlName = "description"><br><br>
+                Content<br><br>
+                <input type="text" id="content-input" formControlName = "content"><br>
+            </div>
+            <div id="right_div">
+                Date <br><br>
+                <input type="date" formControlName = "date"><br><br>
+                Author<br><br>
+                <input type="text" formControlName = "author"><br><br>
+                SourceURL<br><br>
+                <input type="text" formControlName = "sourceURL"><br><br>
+            </div><br>
         </div>
-        <div id="right_div">
-            Date <br><br>
-            <input type="date"><br><br>
-            Author<br><br>
-            <input type="text"><br><br>
-            SourceURL<br><br>
-            <input type="text"><br><br>
-        </div><br>
-    </div>
-    <div id="button_div">
-             <input type="submit" (click) = "saveClicked()" value="Save" class="lowerbuttons">
-             <input type="submit" (click) = "saveClicked()" value="Cancel" class="lowerbuttons">
-    </div>
+        <div id="button_div">
+                <input type="submit" value="Save" class="lowerbuttons" [disabled]="!form.valid">
+                <input type="reset" (click) = "cancel()" value="Cancel" class="lowerbuttons">
+        </div>
    </form>
 </body>    

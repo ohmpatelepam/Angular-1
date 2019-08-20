@@ -2,8 +2,8 @@
     <p ><b>SELECT CATEGORY</b></p>
     <!-- <select id="dropdown"  (change) = "changeNews($event.target.value)"> -->
    <select id="dropdown" (change) = "changedNews($event.target.value)"> 
-       <option value="all"> <a>All</a></option>
-       <option *ngFor="let news of newsList | keyvalue" value={{news.key}}  routerLink="bodycomponent/{{news.key}}">
+       <option value="all" selected> <a>All</a></option>
+       <option *ngFor="let news of newsList | keyvalue" value={{news.key}}>
           <a>
              {{news.key}}
          </a>   
@@ -13,5 +13,5 @@
     <br>
     <input type = "text"  placeholder="Email Address" id="input">
     <button id="subscribe-button">Subscribe</button> <br><br>
-    <a routerLink= "addarticle"><button id="add-news"> Add News</button></a>
+    <a routerLink= "'home/addarticle"><button id="add-news"> Add News</button></a>
  </aside>
