@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder,Validators, FormControl} from '@angular/forms';
 import { Router} from '@angular/router';
+import { ModelService } from '../model.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,7 +9,7 @@ import { Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   form:FormGroup;
-  constructor(private fb:FormBuilder,private route:Router) { 
+  constructor(private fb:FormBuilder,private route:Router,private model:ModelService) { 
 
   }
 
@@ -22,13 +23,24 @@ export class LoginComponent implements OnInit {
         });
   }
   loginClicked(){
-    if(this.form.get("username").value === "ohm" && this.form.get("password").value === "123"){
+    if(this.form.get("username").value === this.model.getUsername() && this.form.get("password").value === this.model.getPassword()){
       window.localStorage.setItem("username",this.form.get("username").value);
       window.localStorage.setItem("password",this.form.get("password").value);
-      this.route.navigateByUrl('/home');
+      this.model.toggleLoggedIn();
+      this.route.navigateByUrl(window.localStorage.getItem("username") + '/home/bodycomponent/all');
     }else{
       alert("wrong credentials");
     }
+  }
+  changeCredentials(){
+    let username = this.form.get("username").value;
+    let password = this.form.get("password").value;
+    if(this.model.changeUsernamePassword(username,password)){
+      alert("successfully changed");
+    }else{
+      alert("cannot able to change");
+    }
+    
   }
 
 }
