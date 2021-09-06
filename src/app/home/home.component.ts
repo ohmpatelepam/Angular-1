@@ -8,10 +8,17 @@ import {  Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private model:ModelService,private route:Router) { }
-
+  loggedIn:boolean;
+  constructor(private model:ModelService,private route:Router) {
+    this.loggedIn = false;
+   }
+  
   ngOnInit() {
-    //this.route.navigateByUrl('/home/bodycomponent/all');
+    this.loggedIn = this.model.getLoginStatus();
+    if(!this.loggedIn){
+      alert("Unauthorized Access Denied");
+      return;
+    }
   }
 
 }

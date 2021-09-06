@@ -4,6 +4,9 @@
     <app-continuereading *ngIf = "displayPopUp" [data] = "popUpData" (display) = "displayPopUp=false" >
 
     </app-continuereading>
+    <app-addarticle *ngIf="displayAddNews">
+
+    </app-addarticle>
     <div  *ngFor="let news of data | keyvalue">
         <app-newscell *ngFor="let item of news.value | keyvalue" [image] = "item.value.imageurlText" [source] = "item.value.sourceText"  [date] = "item.value.dateText" [description] = "item.value.contentText" [author] = "item.value.authorText" (continueReadingPressed) = "continueReadingPressed($event)">
         

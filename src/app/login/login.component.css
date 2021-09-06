@@ -1,0 +1,11 @@
+.heading{
+    align-content: center;
+    text-align: center;
+    color:brown;
+}
+#submit-button{
+    background-color: black;
+    width: auto;
+    height: 20px;
+    color: white;
+}

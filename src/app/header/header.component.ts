@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModelService } from '../model.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   
   private username:String;
-  constructor(private route:Router) { 
+  constructor(private route:Router,private model:ModelService) { 
     this.username = window.localStorage.getItem("username");
   }
 
@@ -19,6 +20,7 @@ export class HeaderComponent implements OnInit {
   logoutpressed(){
     console.log("loggedout");
     window.localStorage.clear();
+    this.model.toggleLoggedIn();
     this.route.navigateByUrl("/login");
     
   }

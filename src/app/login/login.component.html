@@ -1,9 +1,11 @@
-<form  [formGroup]="form" (ngSubmit) = "loginClicked()">
-<div>
+<h1 class="heading">Log In</h1><br><br>
+<form  [formGroup]="form" (ngSubmit) = "loginClicked()" class="heading">
+<div >
     Username:
-    <input type="text" formControlName = "username" >
-    Password
-    <input type="text" formControlName = "password">
-    <input type="submit">
+    <input type="text" formControlName = "username" ><br><br>
+    Password:
+    <input type="password" formControlName = "password"><br><br>
+    <input type="submit" id="submit-button" [disabled] = !form.valid><br><br>
+    <input type="button" id="submit-button" [disabled] = !form.valid (click) = "changeCredentials()" value="Change">
 </div>
 </form>

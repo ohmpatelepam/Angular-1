@@ -8,11 +8,10 @@ import {HomeComponent} from './home/home.component';
 const routes: Routes = [
                         { path: '',  redirectTo: 'login', pathMatch: 'full' },
                         {path:'login', component: LoginComponent},
-                          {path:'home', component: HomeComponent,
-                        children:[ {path:'',redirectTo:'bodycomponent/all',pathMatch:'full'},
-                                 
-                                  {path: 'addarticle' , component: AddarticleComponent}, 
-                                    {path:'bodycomponent/:src', component: BodyComponent}
+                        {path:':username', redirectTo: ':username/home/bodycomponent/all', pathMatch:'full'},
+                          {path:':username/home/bodycomponent/:src', component: HomeComponent,
+                              children:[  
+                                    {path:':src', component: BodyComponent}
                                 ]}
 ];
 

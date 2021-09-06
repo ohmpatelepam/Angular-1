@@ -39,17 +39,20 @@ export class AddarticleComponent implements OnInit {
   
    saveClicked(){
     
+    this.newData = {
+      sourceText : this.form.get("heading").value,
+      descriptionText :this.form.get("description").value,
+      contentText: this.form.get("content").value,
+      authorText:this.form.get("author").value,
+      dateText:this.form.get("date").value,
+      imageurlText:this.form.get("sourceURL").value
+    }
+    this.model.addNews(this.newData);
     alert("News Successfully Added");
-    this.route.navigateByUrl('/home/bodycomponent/all');
+    this.model.signalAddNews(false);
   }
-  validate(heading,description,content,author,date){
-   if(heading == "" || description == "" || content == "" || author == "" || date == ""){
-     alert("All the fields are necessarcy except image");
-     return false;
-   }
-   return true;
-  }
+  
   cancel(){
-    this.route.navigateByUrl('/home/bodycomponent/all');
+    this.model.signalAddNews(false);
   }
 }

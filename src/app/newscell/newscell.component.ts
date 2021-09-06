@@ -22,7 +22,8 @@ export class NewscellComponent implements OnInit {
   }
   buttonPressed(){
     console.log("button presssed");
-    this.continueReadingPressed.emit({imageText:this.image,
+    this.continueReadingPressed.emit({
+      imageText:this.image,
       sourceText:this.source,
       dateText:this.date,
       authorText:this.author,
